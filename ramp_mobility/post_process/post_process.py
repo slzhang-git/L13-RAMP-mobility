@@ -10,6 +10,7 @@ import matplotlib.ticker as mtick
 from pathlib import Path
 import pickle
 from ramp_mobility.utils import tot_users_calc, tot_battery_cap_calc
+import os
 
 
 # from initialise import tot_users_calc, tot_battery_cap_calc
@@ -235,6 +236,7 @@ def Usage_dataframe(Profiles_series, year):
 
 def temp_import(country, year, inputfile_temp = r"..\database\temp_ninja_pop.csv"):
       
+    inputfile_temp=os.path.realpath(os.getcwd() + '/../database/temp_ninja_pop_1980-2019.csv')
     temp_profile = pd.read_csv(inputfile_temp, index_col = 0)
     temp_profile = pd.DataFrame(temp_profile[country]) 
     
@@ -258,7 +260,8 @@ def temp_import(country, year, inputfile_temp = r"..\database\temp_ninja_pop.csv
     hours = pd.period_range(start=str(year-1) + '-01-01', end=str(year+1) + '-12-31 23:00', freq='H')
     temp_profile.set_index(hours, inplace = True)
     
-    temp_profile = temp_profile.resample('T', closed='right').pad()
+    #temp_profile = temp_profile.resample('T', closed='right').pad()
+    temp_profile = temp_profile.resample('T', closed='right').ffill()
     
     return temp_profile
 
