@@ -15,7 +15,7 @@ Further details about the conceptual and mathematical model formulation of the R
 <img src="https://github.com/RAMP-project/RAMP-mobility/blob/master/docs/example_profiles.jpg" width="1200">
 </p>
 
-## Quick start
+## Quick start (for our experiment, run the file "L13-RAMP-mobility/ramp_mobility/ramp_run.py" directly)
 
 Please refer to the complete **[getting started](https://github.com/RAMP-project/RAMP-mobility/blob/master/docs/getting_started.md)** guide for instructions on how to run RAMP-Mobility. This includes information about installation and Python dependencies, as well as a minimum walkthrough of model structure and usage.
 
